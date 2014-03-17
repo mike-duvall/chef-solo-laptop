@@ -1,11 +1,15 @@
 #Run all as root (sudo su - )
 
 # This is for Linux Mint 13 LTS
-# Remove obsolete medibuntu references
-sed -i '/^deb http:\/\/packages.medibuntu.org*/d' /etc/apt/sources.list /etc/apt/sources.list.d/*.list
+
 
 # Do an update
 # Hard coded as shell command for now.  Consider shifting to chef later
+
+# Remove obsolete medibuntu references
+sed -i '/^deb http:\/\/packages.medibuntu.org*/d' /etc/apt/sources.list /etc/apt/sources.list.d/*.list
+
+# Update
 apt-get update
 yes | apt-get dist-upgrade
 
