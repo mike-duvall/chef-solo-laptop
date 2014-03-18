@@ -1,3 +1,4 @@
+
 #Run all as root (sudo su - )
 
 # This is for Linux Mint 13 LTS
@@ -8,6 +9,15 @@
 
 # Remove obsolete medibuntu references
 sed -i '/^deb http:\/\/packages.medibuntu.org*/d' /etc/apt/sources.list /etc/apt/sources.list.d/*.list
+
+
+#Turn on Linux Mint backports
+# Remove existing maya main upstream import line
+grep -v "maya main upstream import" /etc/apt/sources.list > /tmp/temp-sources.list; mv /tmp/temp-sources.list /etc/apt/sources.list
+
+# Re-add with 'backport' at end
+echo "deb http://packages.linuxmint.com maya main upstream import backport"|cat - /etc/apt/sources.list > /tmp/out && mv /tmp/out /etc/apt/sources.list
+
 
 # Update
 apt-get update
