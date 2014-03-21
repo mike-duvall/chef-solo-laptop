@@ -1,6 +1,8 @@
 package 'subversion'
 package 'gnome-do'
-
+package 'dconf-tools'
+package 'virtualbox'
+package 'vagrant'
 
 
 desktop_settings "idle-activation-enabled" do
@@ -27,6 +29,14 @@ desktop_settings "button-lid-ac" do
   value    'nothing'
   user     'mduvall'
 end
+
+desktop_settings "hot-key" do
+  schema   "com.linuxmint.mintmenu"
+  type     "string"
+  value    'nothing'
+  user     'mduvall'
+end
+
 
 
 #execute 'install firefox plugins' do
