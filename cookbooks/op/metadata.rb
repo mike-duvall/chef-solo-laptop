@@ -1,1 +1,1 @@
-depends 'desktop'
+depends "gsettings"
