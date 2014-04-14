@@ -1,1 +1,2 @@
 depends "gsettings"
+depends "gconf"

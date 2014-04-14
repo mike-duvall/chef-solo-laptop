@@ -87,7 +87,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   chef.roles_path = "../my-recipes/roles"
   #   chef.data_bags_path = "../my-recipes/data_bags"
   #   chef.add_recipe "mysql"
-	chef.add_recipe "op"
+  chef.add_recipe "op"
   #   chef.add_role "web"
   #
   #   # You may also specify custom JSON attributes:

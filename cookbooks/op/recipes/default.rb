@@ -6,6 +6,34 @@ package 'dconf-tools'
 
 
 
+
+gconf "/apps/gnome-do/preferences/Do/Platform/Common/AbstractKeyBindingService/Summon_Do" do
+    action :set
+    user 'mduvall'
+    attr_val '<Super>Z'
+    attr_type 'string'
+end
+
+
+
+ruby_block "kill gconfd-2 gconf settings will take effect" do
+  block do
+    output = `sudo -u mduvall ps -eF | sudo -u mduvall grep gconfd-2 |  sudo -u mduvall grep -v grep |  sudo -u mduvall awk '{print $2}' |  sudo -u mduvall  xargs kill -9`    
+    output = output.strip()
+    puts output
+    # output = `sudo -u mduvall ps -eF | sudo -u mduvall grep gnome-do |  sudo -u mduvall grep -v grep |  sudo -u mduvall awk '{print $2}' |  sudo -u mduvall  xargs kill -9`    
+    # output = output.strip()
+    # puts output
+
+
+
+  end
+  action :create
+end
+
+
+
+
 gsettings "org.mate.screensaver" do
   option "idle-activation-enabled"
   value "false"
@@ -13,14 +41,6 @@ gsettings "org.mate.screensaver" do
 end
 
 
-
-
-#desktop_settings "lock-enabled" do
-#  schema   "org.mate.screensaver"
-#  type     "string"
-#  value    'false'
-#  user     'mduvall'
-#end
 
 gsettings "org.mate.screensaver" do
   option "lock-enabled"
