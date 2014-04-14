@@ -1,6 +1,7 @@
 package 'subversion'
 package 'gnome-do'
 package 'dconf-tools'
+package 'gconf-editor'
 #package 'virtualbox'
 #package 'vagrant'
 
@@ -14,6 +15,12 @@ gconf "/apps/gnome-do/preferences/Do/Platform/Common/AbstractKeyBindingService/S
     attr_type 'string'
 end
 
+gconf "/apps/gnome-do/preferences/Do/CorePreferences/AlwaysShowResults" do
+    action :set
+    user 'mduvall'
+    attr_val true
+    attr_type 'bool'    
+end
 
 
 ruby_block "kill gconfd-2 gconf settings will take effect" do
@@ -60,9 +67,10 @@ end
 
 gsettings "com.linuxmint.mintmenu" do
   option "hot-key"
-  value "nothing"
+  value "<Super>C"
   user "mduvall"
 end
+
 
 
 #execute 'install firefox plugins' do
