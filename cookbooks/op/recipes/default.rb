@@ -67,7 +67,7 @@ end
 
 gsettings "com.linuxmint.mintmenu" do
   option "hot-key"
-  value "<Super>C"
+  value "<Super>Z"
   user "mduvall"
 end
 
