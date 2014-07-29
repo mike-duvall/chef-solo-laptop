@@ -10,7 +10,3 @@ To use do:
 * cd chef-solo-laptop
 * ./install.sh
 
-
-Change to test ability to push commits
-
-
